@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ActionSheetView_Example' do
+  pod 'ActionSheetView', :path => '../'
+
+  target 'ActionSheetView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
