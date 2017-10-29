@@ -27,3 +27,6 @@ josechagas, chagasjoselucas@nucleus.eti.br
 ## License
 
 ActionSheetView is available under the MIT license. See the LICENSE file for more info.
+=======
+Project for managing and using any ViewController with an ActionSheet style.
+
