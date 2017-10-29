@@ -5,6 +5,11 @@
 [![License](https://img.shields.io/cocoapods/l/ActionSheetView.svg?style=flat)](http://cocoapods.org/pods/ActionSheetView)
 [![Platform](https://img.shields.io/cocoapods/p/ActionSheetView.svg?style=flat)](http://cocoapods.org/pods/ActionSheetView)
 
+
+Project for managing and using any ViewController with an ActionSheet style.
+=======
+
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -27,6 +32,4 @@ josechagas, chagasjoselucas@nucleus.eti.br
 ## License
 
 ActionSheetView is available under the MIT license. See the LICENSE file for more info.
-=======
-Project for managing and using any ViewController with an ActionSheet style.
 

@@ -7,17 +7,20 @@
 //
 
 import UIKit
-
-
 extension ASManagerVC{
     
     func addGestures(){
         //addTapGes()
-        addPanGes()
-        addSwipeGes()
+        let pan = addPanGes()
+        let upSwipe = addUpSwipeGes()
+        let downSwipe = addDownSwipeGes()
+        
+        pan.require(toFail: upSwipe)
+        pan.require(toFail: downSwipe)
     }
     
-    private func addTapGes(){
+    @discardableResult
+    private func addTapGes()->UITapGestureRecognizer{
         let tapGes = UITapGestureRecognizer(target: self, action: #selector(ASManagerVC.didTapOnBottomView(tapGes:)))
         self.containerView.addGestureRecognizer(tapGes)
         
@@ -28,6 +31,7 @@ extension ASManagerVC{
             }
             
         })
+        return tapGes
     }
     
     @objc private func didTapOnBottomView(tapGes:UITapGestureRecognizer){
@@ -43,9 +47,11 @@ extension ASManagerVC{
         
     }
     
-    private func addPanGes(){
+    @discardableResult
+    private func addPanGes()->UIPanGestureRecognizer{
         let panGes = UIPanGestureRecognizer(target: self, action: #selector(ASManagerVC.didPanOnBottomView(panGes:)))
         self.containerView.addGestureRecognizer(panGes)
+        return panGes
     }
     
     
@@ -81,16 +87,27 @@ extension ASManagerVC{
         }
         
     }
-    
-    func addSwipeGes(){
+    @discardableResult
+    func addUpSwipeGes()->UISwipeGestureRecognizer{
+        
         let upSwipeGes = UISwipeGestureRecognizer(target: self, action: #selector(ASManagerVC.didSwipeOnBottomView(swipeGes:)))
         upSwipeGes.direction = .up
         self.containerView.addGestureRecognizer(upSwipeGes)
         
+        return upSwipeGes
+        
+    }
+    
+    @discardableResult
+    func addDownSwipeGes()->UISwipeGestureRecognizer{
+        
         let downSwipeGes = UISwipeGestureRecognizer(target: self, action: #selector(ASManagerVC.didSwipeOnBottomView(swipeGes:)))
         downSwipeGes.direction = .down
         self.containerView.addGestureRecognizer(downSwipeGes)
+        
+        return downSwipeGes
     }
+    
     
     @objc func didSwipeOnBottomView(swipeGes:UISwipeGestureRecognizer){
         if swipeGes.direction == .up{
@@ -101,3 +118,4 @@ extension ASManagerVC{
         }
     }
 }
+

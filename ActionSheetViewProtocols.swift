@@ -9,7 +9,7 @@
 import UIKit
 
 
-protocol ActionSheetViewDelegate{
+public protocol ActionSheetViewDelegate{
     /**
      Use this method to pass some data to your bottom vc
      */
@@ -23,7 +23,7 @@ protocol ActionSheetViewDelegate{
 /**
  Sera necessario a adicao de alguns metodos para quando o usuario esta mudando o estado da tela usando o pan gesture
  */
-protocol ActionSheetView:class where Self: UIViewController {
+public protocol ActionSheetView:class where Self: UIViewController {
     var controller:ActionSheetViewManager?{get set}
     
     /**
@@ -48,12 +48,12 @@ protocol ActionSheetView:class where Self: UIViewController {
     func uiChangesFor(Progress quant:CGFloat, BigStateProgress big:CGFloat, SmallStateProgress small:CGFloat)
 }
 
-protocol ActionSheetViewManager{
+public protocol ActionSheetViewManager{
     var currentState:ActionSheetViewState{get}
     func changeToState(_ state:ActionSheetViewState,Animated animated:Bool)
 }
 
-enum ActionSheetViewState:String{
+public enum ActionSheetViewState:String{
     case small = "small"
     case big = "big"
 }

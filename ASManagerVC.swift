@@ -8,30 +8,30 @@
 
 import UIKit
 
-class ASViewSegue:UIStoryboardSegue{
+public class ASViewSegue:UIStoryboardSegue{
     override init(identifier: String?, source: UIViewController, destination: UIViewController) {
         super.init(identifier: identifier, source: source, destination: destination)
         if let teste = source as? ASManagerVC, teste.mainVCSegueID == identifier{
             teste.prepateContainerView(vc: destination)
         }
     }
-    override func perform() {
+    public override func perform() {
         print("asd")
     }
 }
 
 
-struct ActionSheetViewNotifications{
+public struct ActionSheetViewNotifications{
     static let didChangeState = Notification.Name("didChangeState")
 }
 
-class ASManagerVC: UIViewController,ActionSheetViewManager {
+open class ASManagerVC: UIViewController,ActionSheetViewManager {
     
     @IBInspectable
-    var mainVCSegueID:String?
+    public var mainVCSegueID:String?
     private(set) var containerView:UIView!
 
-    var currentState: ActionSheetViewState = .small{
+    public var currentState: ActionSheetViewState = .small{
         didSet{
             
             bottomView?.didChangeToState(currentState)
@@ -39,8 +39,8 @@ class ASManagerVC: UIViewController,ActionSheetViewManager {
         }
     }
     
-    var delegate:ActionSheetViewDelegate?
-    weak var bottomView:ActionSheetView?
+    public var delegate:ActionSheetViewDelegate?
+    public weak var bottomView:ActionSheetView?
     
     
     var bottomC:NSLayoutConstraint!
@@ -56,19 +56,19 @@ class ASManagerVC: UIViewController,ActionSheetViewManager {
         return delegate?.finalSize() ?? CGSize(width: self.view.frame.width, height: self.view.frame.height - 100)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         self.performSegue(withIdentifier: mainVCSegueID!, sender: nil)
         super.viewWillAppear(animated)
     }
 
-    override func didReceiveMemoryWarning() {
+    open override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     //MARK: - BottomViewManager methods
     
-    func changeToState(_ state: ActionSheetViewState, Animated animated: Bool) {
+    public func changeToState(_ state: ActionSheetViewState, Animated animated: Bool) {
         if state == .small{
             changeToSmallDimensions(Animate: animated)
         }
@@ -115,7 +115,7 @@ class ASManagerVC: UIViewController,ActionSheetViewManager {
         bottomView?.constraintChangesFor(NewState: currentState)
     }
     
-    func changeToSmallDimensions(Animate animate:Bool){
+    public func changeToSmallDimensions(Animate animate:Bool){
         let initialSize = self.initialSize
         let finalSize = self.finalSize
 
@@ -134,7 +134,7 @@ class ASManagerVC: UIViewController,ActionSheetViewManager {
         }
     }
     
-    func changeToBigDimensions(Animate animate:Bool){
+    public func changeToBigDimensions(Animate animate:Bool){
         let finalSize = self.finalSize
 
         bottomC.constant = 0
@@ -152,7 +152,7 @@ class ASManagerVC: UIViewController,ActionSheetViewManager {
         }
     }
     
-    func changeDimensionsFor(Desloc d:CGFloat){
+    public func changeDimensionsFor(Desloc d:CGFloat){
         let initialSize = self.initialSize
         let finalSize = self.finalSize
         
@@ -166,7 +166,10 @@ class ASManagerVC: UIViewController,ActionSheetViewManager {
         
     
         bottomView?.uiChangesFor(Progress: progress, BigStateProgress: 1, SmallStateProgress: 0)
-        self.currentState = self.bottomC.constant == 0 ? .big : .small
+        let newState:ActionSheetViewState = (self.bottomC.constant == CGFloat(0) ? .big : .small)
+        if newState != self.currentState{
+            self.currentState = newState
+        }
     }
 
 }
