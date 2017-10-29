@@ -1,0 +1,22 @@
+{
+  "name": "ActionSheetView",
+  "version": "0.1.0",
+  "summary": "A short description of ActionSheetView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/josechagas/ActionSheetView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "josechagas": "chagasjoselucas@nucleus.eti.br"
+  },
+  "source": {
+    "git": "https://github.com/josechagas/ActionSheetView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ActionSheetView/Classes/**/*"
+}

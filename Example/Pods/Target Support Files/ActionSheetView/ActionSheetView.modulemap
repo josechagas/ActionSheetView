@@ -1,0 +1,6 @@
+framework module ActionSheetView {
+  umbrella header "ActionSheetView-umbrella.h"
+
+  export *
+  module * { export * }
+}
