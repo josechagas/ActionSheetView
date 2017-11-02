@@ -14,6 +14,7 @@
 		5A64F96B14BFAC4883DAAB91E329143B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		607A62832EA15EE4232C5DFC820C3311 /* Pods-ActionSheetView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D86EDEDBAFFBA2AE41598DB8BD6565AF /* Pods-ActionSheetView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		78F00E4975E0A82973B7A1B449D3339C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		8808996D1FAB604600A2CC96 /* ASManagerVC+PanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8808996C1FAB604600A2CC96 /* ASManagerVC+PanGesture.swift */; };
 		883973E61FA694E500E98100 /* ActionSheetViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883973E31FA694E500E98100 /* ActionSheetViewProtocols.swift */; };
 		883973E71FA694E500E98100 /* ASManagerVC+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883973E41FA694E500E98100 /* ASManagerVC+Gestures.swift */; };
 		883973E81FA694E500E98100 /* ASManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883973E51FA694E500E98100 /* ASManagerVC.swift */; };
@@ -47,6 +48,7 @@
 		6E91E5253E1AE38BF463F06E9CE74E2E /* Pods-ActionSheetView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ActionSheetView_Example-frameworks.sh"; sourceTree = "<group>"; };
 		6F86E9604F04D8E0A2D6E8D2DC3F9D9C /* ActionSheetView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ActionSheetView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		806703DEE76B4C2048B9BDAB00D00535 /* Pods-ActionSheetView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ActionSheetView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8808996C1FAB604600A2CC96 /* ASManagerVC+PanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASManagerVC+PanGesture.swift"; sourceTree = "<group>"; };
 		883973E31FA694E500E98100 /* ActionSheetViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetViewProtocols.swift; sourceTree = "<group>"; };
 		883973E41FA694E500E98100 /* ASManagerVC+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASManagerVC+Gestures.swift"; sourceTree = "<group>"; };
 		883973E51FA694E500E98100 /* ASManagerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASManagerVC.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				883973E51FA694E500E98100 /* ASManagerVC.swift */,
 				883973E41FA694E500E98100 /* ASManagerVC+Gestures.swift */,
 				06A820E8D39F880D4D6AF82DB297D3EE /* Support Files */,
+				8808996C1FAB604600A2CC96 /* ASManagerVC+PanGesture.swift */,
 			);
 			name = ActionSheetView;
 			path = ../..;
@@ -328,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DC8C4064958B3076BFA9584BFEE26CD /* ActionSheetView-dummy.m in Sources */,
+				8808996D1FAB604600A2CC96 /* ASManagerVC+PanGesture.swift in Sources */,
 				883973E61FA694E500E98100 /* ActionSheetViewProtocols.swift in Sources */,
 				883973E71FA694E500E98100 /* ASManagerVC+Gestures.swift in Sources */,
 				883973E81FA694E500E98100 /* ASManagerVC.swift in Sources */,

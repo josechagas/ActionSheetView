@@ -34,20 +34,19 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
     public var currentState: ActionSheetViewState = .small{
         didSet{
             
-            bottomView?.didChangeToState(currentState)
+            asView?.didChangeToState(currentState)
             NotificationCenter.default.post(name: ActionSheetViewNotifications.didChangeState, object: self as ActionSheetViewManager)
         }
     }
     
     public var delegate:ActionSheetViewDelegate?
-    public weak var bottomView:ActionSheetView?
+    public weak var asView:ActionSheetView?
     
-    
+    /*
     var bottomC:NSLayoutConstraint!
-    fileprivate var leadingC:NSLayoutConstraint!
-    fileprivate var trailingC:NSLayoutConstraint!
-    
-    
+    var leadingC:NSLayoutConstraint!
+    var trailingC:NSLayoutConstraint!
+    */
     var initialSize:CGSize {
         return delegate?.initialSize() ?? CGSize(width: self.view.frame.width, height: 60)
     }
@@ -66,7 +65,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - BottomViewManager methods
+    //MARK: - ActionSheetViewManager methods
     
     public func changeToState(_ state: ActionSheetViewState, Animated animated: Bool) {
         if state == .small{
@@ -77,96 +76,189 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         }
     }
     
-    //MARK: - BottomView
+    //MARK: - ActionSheetView
 
     fileprivate func prepateContainerView(vc:UIViewController){
-        
-        if let bottomView = vc as? ActionSheetView{
-            bottomView.controller = self
-            self.bottomView = bottomView
+        guard let _ = containerView else{
+            if let asView = vc as? ActionSheetView{
+                asView.controller = self
+                self.asView = asView
+            }
+            
+            self.addChildViewController(vc)
+            containerView = vc.view
+            containerView.frame = CGRect(x:  (self.view.frame.width - self.initialSize.width)/2, y: self.view.frame.height - self.initialSize.height, width: self.initialSize.width, height: self.finalSize.height)
+            print(containerView.bounds.width)
+
+            containerView.clipsToBounds = true
+            containerView.translatesAutoresizingMaskIntoConstraints = true
+            containerView.layer.cornerRadius = 20
+            self.view.addSubview(containerView)
+            
+            addGestures()
+            delegate?.bottomVC(vc)
+            
+            //addConstraints()
+            
+            asView?.didChangeToState(currentState)
+            self.changeToState(currentState, Animated: false)
+            return
         }
-        
-        self.addChildViewController(vc)
-        containerView = vc.view
-        containerView.clipsToBounds = true
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addSubview(containerView)
-        let initialSize = self.initialSize
-        let finalSize = self.finalSize
-        
-        addGestures()
+
         delegate?.bottomVC(vc)
-        
-        bottomC = NSLayoutConstraint(item: self.view, attribute: .bottom, relatedBy: .equal, toItem: containerView, attribute: .bottom, multiplier: 1, constant: initialSize.height - finalSize.height)
-        self.view.addConstraint(bottomC)
-
-        leadingC = NSLayoutConstraint(item: containerView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: (finalSize.width - initialSize.width)/2)
-        self.view.addConstraint(leadingC)
-        trailingC = NSLayoutConstraint(item: self.view, attribute: .trailing, relatedBy: .equal, toItem: containerView, attribute: .trailing, multiplier: 1, constant: (finalSize.width - initialSize.width)/2)
-        self.view.addConstraint(trailingC)
-        
-        
-        let heightC = NSLayoutConstraint(item: containerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: finalSize.height)
-        self.containerView.addConstraint(heightC)
-
-        bottomView?.didChangeToState(currentState)
-        bottomView?.apperanceChangesFor(NewState: currentState)
-        bottomView?.constraintChangesFor(NewState: currentState)
+        asView?.didChangeToState(currentState)
+        self.changeToState(currentState, Animated: false)
     }
     
-    public func changeToSmallDimensions(Animate animate:Bool){
-        let initialSize = self.initialSize
-        let finalSize = self.finalSize
-
-        bottomC.constant = initialSize.height - finalSize.height
-        leadingC.constant = (finalSize.width - initialSize.width)/2
-        trailingC.constant = (finalSize.width - initialSize.width)/2
+    
+    private func addConstraints(){
+        /*
+         bottomC = NSLayoutConstraint(item: self.view, attribute: .bottom, relatedBy: .equal, toItem: containerView, attribute: .bottom, multiplier: 1, constant: initialSize.height - finalSize.height)
+         self.view.addConstraint(bottomC)
+         
+         leadingC = NSLayoutConstraint(item: containerView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0)
+         self.view.addConstraint(leadingC)
+         trailingC = NSLayoutConstraint(item: self.view, attribute: .trailing, relatedBy: .equal, toItem: containerView, attribute: .trailing, multiplier: 1, constant: 0)
+         self.view.addConstraint(trailingC)
+         
+         
+         let heightC = NSLayoutConstraint(item: containerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: finalSize.height)
+         self.containerView.addConstraint(heightC)
+         /*
+         let widthC = NSLayoutConstraint(item: containerView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: initialSize.width)
+         self.containerView.addConstraint(width)
+         let centerXC = NSLayoutConstraint(item: containerView, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
+         self.view.addConstraint(centerXC)
+         */
+         containerView.translatesAutoresizingMaskIntoConstraints = true
+         */
         
-        bottomView?.constraintChangesFor(NewState: .small)
+    }
+    
+    
+    //MARK: ActionSheetView animation methods
+    
+    public func changeToSmallDimensions(Animate animate:Bool,Duration duration:TimeInterval = 0.4){
+
+        let center = self.containerView.center
+        let smallMaxYValue = self.view.frame.height + finalSize.height/2 - initialSize.height
+        
+        self.asView?.constraintChangesFor(NewState: .small)
         if animate{
-            UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-                self.bottomView?.apperanceChangesFor(NewState: .small)
-                self.view.layoutIfNeeded()
+            let startWidth = self.containerView.bounds.width
+            UIView.animateKeyframes(withDuration: duration, delay: 0, options: UIViewKeyframeAnimationOptions.beginFromCurrentState, animations: {
+                
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration, animations: {
+                    self.asView?.apperanceChangesFor(NewState: .small)
+                    self.containerView.layoutIfNeeded()
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration, animations: {
+                    self.containerView.center = CGPoint(x: center.x, y: smallMaxYValue)
+
+                    let scaleTransf = CGAffineTransform(scaleX: self.initialSize.width/startWidth, y: 1)
+                    self.containerView.transform = scaleTransf
+                })
+                
             }) { (finished) in
                 self.currentState = .small
             }
         }
+        else{
+            asView?.apperanceChangesFor(NewState: .small)
+            self.containerView.layoutIfNeeded()
+
+            self.containerView.center = CGPoint(x: center.x, y: smallMaxYValue)
+            let scaleTransf = CGAffineTransform(scaleX: self.initialSize.width/self.containerView.bounds.width, y: 1)
+            self.containerView.transform = scaleTransf
+
+            self.currentState = .small
+        }
     }
     
-    public func changeToBigDimensions(Animate animate:Bool){
-        let finalSize = self.finalSize
-
-        bottomC.constant = 0
-        leadingC.constant = (finalSize.width - self.view.frame.width)/2
-        trailingC.constant = (finalSize.width - self.view.frame.width)/2
+    public func changeToBigDimensions(Animate animate:Bool,Duration duration:TimeInterval = 0.4){
+        let center = self.containerView.center
+        let bigMaxYValue = self.view.frame.height - finalSize.height/2
         
-        bottomView?.constraintChangesFor(NewState: .big)
+        self.asView?.constraintChangesFor(NewState: .big)
         if animate{
-            UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-                self.bottomView?.apperanceChangesFor(NewState: .big)
-                self.view.layoutIfNeeded()
+            let startWidth = self.containerView.bounds.width
+            UIView.animateKeyframes(withDuration: duration, delay: 0, options: UIViewKeyframeAnimationOptions.beginFromCurrentState, animations: {
+                
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration, animations: {
+                    self.asView?.apperanceChangesFor(NewState: .big)
+                    self.containerView.layoutIfNeeded()
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration, animations: {
+                    self.containerView.center = CGPoint(x: center.x, y: bigMaxYValue)
+                    let scaleTransf = CGAffineTransform(scaleX: self.finalSize.width/startWidth, y: 1)
+                    self.containerView.transform = scaleTransf
+
+                })
+
             }) { (finished) in
                 self.currentState = .big
             }
         }
+        else{
+            self.asView?.apperanceChangesFor(NewState: .big)
+            self.containerView.layoutIfNeeded()
+
+            self.containerView.center = CGPoint(x: center.x, y: bigMaxYValue)
+            let scaleTransf = CGAffineTransform(scaleX: self.finalSize.width/self.containerView.bounds.width, y: 1)
+            self.containerView.transform = scaleTransf
+            
+            self.currentState = .big
+        }
     }
+    
+    
+    
+    
+    
+    //not updated
     
     public func changeDimensionsFor(Desloc d:CGFloat){
         let initialSize = self.initialSize
         let finalSize = self.finalSize
         
-        bottomC.constant -= d
-        let progress = (finalSize.height + bottomC.constant)/(finalSize.height)
+        let currentCenter = self.containerView.center
+        var newCenterY = currentCenter.y + d
         
-        let max = (finalSize.width - initialSize.width)/2
-        let value = max - max*progress
-        leadingC.constant = value
-        trailingC.constant = value
+        //check if it possible
+        let bigMaxYValue = self.view.frame.height - finalSize.height/2
+        let smallMaxYValue = self.view.frame.height + finalSize.height/2 - initialSize.height
         
-    
-        bottomView?.uiChangesFor(Progress: progress, BigStateProgress: 1, SmallStateProgress: 0)
-        let newState:ActionSheetViewState = (self.bottomC.constant == CGFloat(0) ? .big : .small)
+        if newCenterY < bigMaxYValue{
+            self.containerView.center = CGPoint(x: currentCenter.x, y: bigMaxYValue)
+            newCenterY = bigMaxYValue
+        }
+        else if newCenterY > smallMaxYValue{
+            self.containerView.center = CGPoint(x: currentCenter.x, y: smallMaxYValue)
+            newCenterY = smallMaxYValue
+        }
+        else{//range valido
+            self.containerView.center = CGPoint(x: currentCenter.x, y: newCenterY)
+        }
+        
+        let desly_100 = smallMaxYValue - bigMaxYValue
+        let currentDesly = smallMaxYValue - newCenterY
+        let progress = currentDesly/desly_100
+        
+        let deslx_100 = self.finalSize.width - self.initialSize.width
+        let widthIncrement = currentState == .big ? deslx_100*(1 - progress)  : (deslx_100)*progress
+        let base = currentState == .big ? self.finalSize.width : self.initialSize.width
+        let newWidth = currentState == .big ? base - widthIncrement : base + widthIncrement
+        
+        let scaleX = newWidth/self.containerView.bounds.width
+        
+        let scaleTransf = CGAffineTransform(scaleX: scaleX, y: 1)
+        self.containerView.transform = scaleTransf
+        
+        self.asView?.uiChangesFor(Progress: progress, BigStateProgress: 1, SmallStateProgress: 0)
+        
+        let newState:ActionSheetViewState = (newCenterY == bigMaxYValue ? .big : .small)
         if newState != self.currentState{
             self.currentState = newState
         }

@@ -23,7 +23,7 @@ class ViewController: ASManagerVC,ActionSheetViewDelegate {
     }
     
     func initialSize() -> CGSize {
-        return CGSize(width: self.view.frame.width - 16, height: 130)
+        return CGSize(width: self.view.frame.width - 20, height: 130)
     }
     
     func finalSize() -> CGSize {
