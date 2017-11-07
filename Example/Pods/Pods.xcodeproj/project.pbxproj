@@ -208,8 +208,8 @@
 				883973E31FA694E500E98100 /* ActionSheetViewProtocols.swift */,
 				883973E51FA694E500E98100 /* ASManagerVC.swift */,
 				883973E41FA694E500E98100 /* ASManagerVC+Gestures.swift */,
-				06A820E8D39F880D4D6AF82DB297D3EE /* Support Files */,
 				8808996C1FAB604600A2CC96 /* ASManagerVC+PanGesture.swift */,
+				06A820E8D39F880D4D6AF82DB297D3EE /* Support Files */,
 			);
 			name = ActionSheetView;
 			path = ../..;

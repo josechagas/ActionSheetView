@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ActionSheetView'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of ActionSheetView.'
+  s.version          = '0.3.0'
+  s.summary          = 'ActionSheetView they are cool and now you have the possibility to create customized ones.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,8 +18,9 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+What do you think about Maps and Uber ActionSheetViews ?! They are good and powerfull because you can add a lot of information with no worries about affecting user experience.
+ActionSheetView is a library that brings the possiblity to turn any ViewController into a style of an ActionSheetView with some small configurations.
+DESC
 
   s.homepage         = 'https://github.com/josechagas/ActionSheetView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'

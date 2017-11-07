@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o7w-ja-udX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o7w-ja-udX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,12 +44,34 @@
                                 <rect key="frame" x="133" y="278" width="108" height="30"/>
                                 <state key="normal" title="Mostrar Teste 2"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pq7-Ps-r2n">
+                                <rect key="frame" x="160" y="605" width="54" height="30"/>
+                                <state key="normal" title="Mostrar">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showASViewAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dm8-zK-L82"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqT-KB-Bif">
+                                <rect key="frame" x="154.5" y="411" width="65" height="30"/>
+                                <state key="normal" title="Esconder">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="hideASViewBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZeP-KK-X3R"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.23137254900000001" green="0.54475621490000004" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="bqT-KB-Bif" firstAttribute="centerX" secondItem="Tm8-4e-gcO" secondAttribute="centerX" id="4SK-ke-uev"/>
+                            <constraint firstItem="Pq7-Ps-r2n" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8zy-rF-KoX"/>
+                            <constraint firstItem="bqT-KB-Bif" firstAttribute="top" secondItem="Tm8-4e-gcO" secondAttribute="bottom" constant="31.5" id="9xi-YA-xa0"/>
                             <constraint firstItem="Tm8-4e-gcO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="JUY-4m-yEX"/>
                             <constraint firstItem="wS5-mf-5Ln" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WKr-ds-aBR"/>
                             <constraint firstItem="Tm8-4e-gcO" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="bmj-Wy-Gqm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Pq7-Ps-r2n" secondAttribute="bottom" constant="32" id="dsp-Vz-9QW"/>
                             <constraint firstItem="Tm8-4e-gcO" firstAttribute="top" secondItem="wS5-mf-5Ln" secondAttribute="bottom" constant="44" id="kzG-Zd-u2L"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tm8-4e-gcO" secondAttribute="trailing" constant="5" id="nXn-fZ-7Jp"/>
                         </constraints>

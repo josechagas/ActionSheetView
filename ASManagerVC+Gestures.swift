@@ -10,8 +10,8 @@ import UIKit
 extension ASManagerVC{
     
     func addGestures(){
-        addTapGes()
-        let pan = addPanGes()
+        //addTapGes()
+        addPanGes()
         //let upSwipe = addUpSwipeGes()
         //let downSwipe = addDownSwipeGes()
         
@@ -22,18 +22,21 @@ extension ASManagerVC{
     @discardableResult
     private func addTapGes()->UITapGestureRecognizer{
         let tapGes = UITapGestureRecognizer(target: self, action: #selector(ASManagerVC.didTapOnASView(tapGes:)))
-        self.containerView.addGestureRecognizer(tapGes)
+        
+        self.view.addGestureRecognizer(tapGes)
         
         return tapGes
     }
     
     @objc private func didTapOnASView(tapGes:UITapGestureRecognizer){
+        let location = tapGes.location(in: self.view)
+        let isInsideASView = containerView.frame.contains(location)
         
-        if currentState == .small{
+        if currentState == .small && isInsideASView{
             currentState = .big
             changeToBigDimensions(Animate: true)
         }
-        else{
+        else if currentState != .small && !isInsideASView{
             currentState = .small
             changeToSmallDimensions(Animate: true)
         }

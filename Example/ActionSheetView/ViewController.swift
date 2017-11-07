@@ -14,6 +14,7 @@ class ViewController: ASManagerVC,ActionSheetViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        asViewIsHidden = true
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -21,6 +22,17 @@ class ViewController: ASManagerVC,ActionSheetViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func hideASViewBtnAction(_ sender: Any) {
+        self.asViewIsHidden = true
+    }
+    
+    
+    @IBAction func showASViewAction(_ sender: Any) {
+        self.asViewIsHidden = false
+    }
+    
+    
     
     func initialSize() -> CGSize {
         return CGSize(width: self.view.frame.width - 20, height: 130)

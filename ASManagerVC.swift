@@ -39,8 +39,18 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         }
     }
     
+    public var asViewIsHidden:Bool = false{
+        didSet{
+            if containerView != nil{
+                containerView.isHidden = asViewIsHidden
+            }
+        }
+    }
+    
+    
     public var delegate:ActionSheetViewDelegate?
-    public weak var asView:ActionSheetView?
+    private weak var asView:ActionSheetView?
+    
     
     /*
     var bottomC:NSLayoutConstraint!
