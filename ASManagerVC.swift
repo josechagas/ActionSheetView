@@ -39,6 +39,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         }
     }
     
+    @IBInspectable
     public var asViewIsHidden:Bool = false{
         didSet{
             if containerView != nil{
@@ -68,6 +69,10 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
     open override func viewWillAppear(_ animated: Bool) {
         self.performSegue(withIdentifier: mainVCSegueID!, sender: nil)
         super.viewWillAppear(animated)
+    }
+    
+    open override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        super.didRotate(from: <#T##UIInterfaceOrientation#>)
     }
 
     open override func didReceiveMemoryWarning() {
@@ -118,31 +123,6 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         delegate?.bottomVC(vc)
         asView?.didChangeToState(currentState)
         self.changeToState(currentState, Animated: false)
-    }
-    
-    
-    private func addConstraints(){
-        /*
-         bottomC = NSLayoutConstraint(item: self.view, attribute: .bottom, relatedBy: .equal, toItem: containerView, attribute: .bottom, multiplier: 1, constant: initialSize.height - finalSize.height)
-         self.view.addConstraint(bottomC)
-         
-         leadingC = NSLayoutConstraint(item: containerView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0)
-         self.view.addConstraint(leadingC)
-         trailingC = NSLayoutConstraint(item: self.view, attribute: .trailing, relatedBy: .equal, toItem: containerView, attribute: .trailing, multiplier: 1, constant: 0)
-         self.view.addConstraint(trailingC)
-         
-         
-         let heightC = NSLayoutConstraint(item: containerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: finalSize.height)
-         self.containerView.addConstraint(heightC)
-         /*
-         let widthC = NSLayoutConstraint(item: containerView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: initialSize.width)
-         self.containerView.addConstraint(width)
-         let centerXC = NSLayoutConstraint(item: containerView, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
-         self.view.addConstraint(centerXC)
-         */
-         containerView.translatesAutoresizingMaskIntoConstraints = true
-         */
-        
     }
     
     

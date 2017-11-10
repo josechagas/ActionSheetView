@@ -43,11 +43,6 @@ extension ASManagerVC{
         
     }
     
-
-    
-    
-    
-    
     
     //MARK: - Swipe Gesture
     
