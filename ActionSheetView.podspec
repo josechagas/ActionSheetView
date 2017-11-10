@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ActionSheetView'
-  s.version          = '0.4.0'
+  s.version          = '0.4.1'
   s.summary          = 'ActionSheetView they are cool and now you have the possibility to create customized ones.'
 
 # This description is used to generate tags and improve search results.
@@ -27,6 +27,9 @@ DESC
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'josechagas' => 'chagasjoselucas@nucleus.eti.br' }
   s.source           = { :git => 'https://github.com/josechagas/ActionSheetView.git', :tag => s.version.to_s }
+#s.source           = { :git => 'https://github.com/josechagas/ActionSheetView.git', :commit => "0e0e43fd2cf6290a36e21dcf1c7182da90a41182" }
+
+
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
