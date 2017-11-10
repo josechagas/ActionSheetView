@@ -70,10 +70,6 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         self.performSegue(withIdentifier: mainVCSegueID!, sender: nil)
         super.viewWillAppear(animated)
     }
-    
-    open override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
-        super.didRotate(from: <#T##UIInterfaceOrientation#>)
-    }
 
     open override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

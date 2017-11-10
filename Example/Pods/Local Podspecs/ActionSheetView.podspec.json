@@ -1,8 +1,8 @@
 {
   "name": "ActionSheetView",
-  "version": "0.1.0",
-  "summary": "A short description of ActionSheetView.",
-  "description": "TODO: Add long description of the pod here.",
+  "version": "0.4.0",
+  "summary": "ActionSheetView they are cool and now you have the possibility to create customized ones.",
+  "description": "What do you think about Maps and Uber ActionSheetViews ?! They are good and powerfull because you can add a lot of information with no worries about affecting user experience.\nActionSheetView is a library that brings the possiblity to turn any ViewController into a style of an ActionSheetView with some small configurations.",
   "homepage": "https://github.com/josechagas/ActionSheetView",
   "license": {
     "type": "MIT",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/josechagas/ActionSheetView.git",
-    "tag": "0.1.0"
+    "tag": "0.4.0"
   },
   "platforms": {
     "ios": "8.0"

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ActionSheetView'
-  s.version          = '0.3.0'
+  s.version          = '0.4.0'
   s.summary          = 'ActionSheetView they are cool and now you have the possibility to create customized ones.'
 
 # This description is used to generate tags and improve search results.
@@ -31,7 +31,7 @@ DESC
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'ActionSheetView/**/*'
+  s.source_files = 'ActionSheetView/Classes/**/*'
   
   # s.resource_bundles = {
   #   'ActionSheetView' => ['ActionSheetView/Assets/*.png']

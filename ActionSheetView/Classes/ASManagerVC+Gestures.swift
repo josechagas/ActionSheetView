@@ -14,7 +14,6 @@ extension ASManagerVC{
         addPanGes()
         //let upSwipe = addUpSwipeGes()
         //let downSwipe = addDownSwipeGes()
-        
         //pan.require(toFail: upSwipe)
         //pan.require(toFail: downSwipe)
     }

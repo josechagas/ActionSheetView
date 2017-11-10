@@ -1,5 +1,5 @@
 PODS:
-  - ActionSheetView (0.1.0)
+  - ActionSheetView (0.4.0)
 
 DEPENDENCIES:
   - ActionSheetView (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  ActionSheetView: b63c8f15cde967a1dce734617c86d27ecf2a95f9
+  ActionSheetView: a38ec141cff4332509f0fe4759ed3d7582632f49
 
 PODFILE CHECKSUM: 7f25122628483e6fa4053a2eba4bd370079c8149
 
