@@ -31,7 +31,7 @@ DESC
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'ActionSheetView/Classes/**/*'
+  s.source_files = 'ActionSheetView/**/*'
   
   # s.resource_bundles = {
   #   'ActionSheetView' => ['ActionSheetView/Assets/*.png']
