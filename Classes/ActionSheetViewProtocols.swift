@@ -23,7 +23,7 @@ public protocol ActionSheetViewDelegate{
 /**
  Sera necessario a adicao de alguns metodos para quando o usuario esta mudando o estado da tela usando o pan gesture
  */
-public protocol ActionSheetView:class where Self: UIViewController {
+public protocol ActionSheetView:class {
     var controller:ActionSheetViewManager?{get set}
     
     /**

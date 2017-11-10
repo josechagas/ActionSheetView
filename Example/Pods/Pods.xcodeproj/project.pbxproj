@@ -11,10 +11,10 @@
 		50CB7DD6115CAF9882F2E09F2FDA568E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		607A62832EA15EE4232C5DFC820C3311 /* Pods-ActionSheetView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D86EDEDBAFFBA2AE41598DB8BD6565AF /* Pods-ActionSheetView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		78F00E4975E0A82973B7A1B449D3339C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		88FD9B0F1FB532DE008DACE5 /* ActionSheetViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD9B0B1FB532DE008DACE5 /* ActionSheetViewProtocols.swift */; };
-		88FD9B101FB532DE008DACE5 /* ASManagerVC+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD9B0C1FB532DE008DACE5 /* ASManagerVC+Gestures.swift */; };
-		88FD9B111FB532DE008DACE5 /* ASManagerVC+PanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD9B0D1FB532DE008DACE5 /* ASManagerVC+PanGesture.swift */; };
-		88FD9B121FB532DE008DACE5 /* ASManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD9B0E1FB532DE008DACE5 /* ASManagerVC.swift */; };
+		88FD9B1C1FB53655008DACE5 /* ActionSheetViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD9B161FB53655008DACE5 /* ActionSheetViewProtocols.swift */; };
+		88FD9B1D1FB53655008DACE5 /* ASManagerVC+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD9B171FB53655008DACE5 /* ASManagerVC+Gestures.swift */; };
+		88FD9B1E1FB53655008DACE5 /* ASManagerVC+PanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD9B181FB53655008DACE5 /* ASManagerVC+PanGesture.swift */; };
+		88FD9B1F1FB53655008DACE5 /* ASManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD9B191FB53655008DACE5 /* ASManagerVC.swift */; };
 		BF40AF32DFCA1703163125443CF0A024 /* Pods-ActionSheetView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BA63EF48E546359EDF788E820B7A9D99 /* Pods-ActionSheetView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA27A22E90FC4DC70E8B155885735C2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		E48F5FF3C97E5A68F51980BCD9F75848 /* Pods-ActionSheetView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4836632990768DEC4CB412509FEE5531 /* Pods-ActionSheetView_Example-dummy.m */; };
@@ -46,10 +46,10 @@
 		6F86E9604F04D8E0A2D6E8D2DC3F9D9C /* ActionSheetView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ActionSheetView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7892E0FBF51F6480C6E9AB9CC5023015 /* ActionSheetView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ActionSheetView-prefix.pch"; sourceTree = "<group>"; };
 		806703DEE76B4C2048B9BDAB00D00535 /* Pods-ActionSheetView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ActionSheetView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		88FD9B0B1FB532DE008DACE5 /* ActionSheetViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetViewProtocols.swift; sourceTree = "<group>"; };
-		88FD9B0C1FB532DE008DACE5 /* ASManagerVC+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASManagerVC+Gestures.swift"; sourceTree = "<group>"; };
-		88FD9B0D1FB532DE008DACE5 /* ASManagerVC+PanGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASManagerVC+PanGesture.swift"; sourceTree = "<group>"; };
-		88FD9B0E1FB532DE008DACE5 /* ASManagerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASManagerVC.swift; sourceTree = "<group>"; };
+		88FD9B161FB53655008DACE5 /* ActionSheetViewProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetViewProtocols.swift; sourceTree = "<group>"; };
+		88FD9B171FB53655008DACE5 /* ASManagerVC+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASManagerVC+Gestures.swift"; sourceTree = "<group>"; };
+		88FD9B181FB53655008DACE5 /* ASManagerVC+PanGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASManagerVC+PanGesture.swift"; sourceTree = "<group>"; };
+		88FD9B191FB53655008DACE5 /* ASManagerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASManagerVC.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9570597AF361F57456ED87FB8CAC7E5E /* Pods-ActionSheetView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ActionSheetView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		9E62BEC0F8DA96C71599594812C453F7 /* Pods-ActionSheetView_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ActionSheetView_Tests-resources.sh"; sourceTree = "<group>"; };
@@ -101,7 +101,8 @@
 		1194413B9638F8BA3619F2F8FB9F3E31 /* ActionSheetView */ = {
 			isa = PBXGroup;
 			children = (
-				88FD9B071FB532DE008DACE5 /* ActionSheetView */,
+				88FD9B1A1FB53655008DACE5 /* Assets */,
+				88FD9B151FB53655008DACE5 /* Classes */,
 				8CC2F6203943C55E7E9EDAF7932AB47F /* Support Files */,
 			);
 			name = ActionSheetView;
@@ -137,31 +138,22 @@
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		88FD9B071FB532DE008DACE5 /* ActionSheetView */ = {
+		88FD9B151FB53655008DACE5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				88FD9B081FB532DE008DACE5 /* Assets */,
-				88FD9B0A1FB532DE008DACE5 /* Classes */,
+				88FD9B161FB53655008DACE5 /* ActionSheetViewProtocols.swift */,
+				88FD9B171FB53655008DACE5 /* ASManagerVC+Gestures.swift */,
+				88FD9B181FB53655008DACE5 /* ASManagerVC+PanGesture.swift */,
+				88FD9B191FB53655008DACE5 /* ASManagerVC.swift */,
 			);
-			path = ActionSheetView;
+			path = Classes;
 			sourceTree = "<group>";
 		};
-		88FD9B081FB532DE008DACE5 /* Assets */ = {
+		88FD9B1A1FB53655008DACE5 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		88FD9B0A1FB532DE008DACE5 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				88FD9B0B1FB532DE008DACE5 /* ActionSheetViewProtocols.swift */,
-				88FD9B0C1FB532DE008DACE5 /* ASManagerVC+Gestures.swift */,
-				88FD9B0D1FB532DE008DACE5 /* ASManagerVC+PanGesture.swift */,
-				88FD9B0E1FB532DE008DACE5 /* ASManagerVC.swift */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		8CC2F6203943C55E7E9EDAF7932AB47F /* Support Files */ = {
@@ -359,11 +351,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88FD9B111FB532DE008DACE5 /* ASManagerVC+PanGesture.swift in Sources */,
-				88FD9B121FB532DE008DACE5 /* ASManagerVC.swift in Sources */,
-				88FD9B101FB532DE008DACE5 /* ASManagerVC+Gestures.swift in Sources */,
+				88FD9B1E1FB53655008DACE5 /* ASManagerVC+PanGesture.swift in Sources */,
+				88FD9B1C1FB53655008DACE5 /* ActionSheetViewProtocols.swift in Sources */,
+				88FD9B1D1FB53655008DACE5 /* ASManagerVC+Gestures.swift in Sources */,
 				F6AA6111C2C36569A1E5C52799920296 /* ActionSheetView-dummy.m in Sources */,
-				88FD9B0F1FB532DE008DACE5 /* ActionSheetViewProtocols.swift in Sources */,
+				88FD9B1F1FB53655008DACE5 /* ASManagerVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
