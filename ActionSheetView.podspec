@@ -6,6 +6,8 @@
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
 #
 
+#[![CI Status](http://img.shields.io/travis/josechagas/ActionSheetView.svg?style=flat)](https://travis-ci.org/josechagas/ActionSheetView)
+
 Pod::Spec.new do |s|
   s.name             = 'ActionSheetView'
   s.version          = '0.4.3'

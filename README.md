@@ -1,6 +1,4 @@
 # ActionSheetView
-
-[![CI Status](http://img.shields.io/travis/josechagas/ActionSheetView.svg?style=flat)](https://travis-ci.org/josechagas/ActionSheetView)
 [![Version](https://img.shields.io/cocoapods/v/ActionSheetView.svg?style=flat)](http://cocoapods.org/pods/ActionSheetView)
 [![License](https://img.shields.io/cocoapods/l/ActionSheetView.svg?style=flat)](http://cocoapods.org/pods/ActionSheetView)
 [![Platform](https://img.shields.io/cocoapods/p/ActionSheetView.svg?style=flat)](http://cocoapods.org/pods/ActionSheetView)
@@ -16,7 +14,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-iOS 9.3+
+iOS 10.0+
 
 ## Installation
 
