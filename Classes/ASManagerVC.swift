@@ -11,7 +11,7 @@ import UIKit
 public class ASViewSegue:UIStoryboardSegue{
     override init(identifier: String?, source: UIViewController, destination: UIViewController) {
         super.init(identifier: identifier, source: source, destination: destination)
-        if let teste = source as? ASManagerVC, teste.mainVCSegueID == identifier{
+        if let teste = source as? ASManagerVC, teste.ActionSheetVCSegueID == identifier{
             teste.prepateContainerView(vc: destination)
         }
     }
@@ -28,7 +28,7 @@ public struct ActionSheetViewNotifications{
 open class ASManagerVC: UIViewController,ActionSheetViewManager {
     
     @IBInspectable
-    public var mainVCSegueID:String?
+    public var ActionSheetVCSegueID:String?
     private(set) var containerView:UIView!
 
     public var currentState: ActionSheetViewState = .small{
@@ -67,7 +67,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
     }
     
     open override func viewWillAppear(_ animated: Bool) {
-        self.performSegue(withIdentifier: mainVCSegueID!, sender: nil)
+        self.performSegue(withIdentifier: ActionSheetVCSegueID!, sender: nil)
         super.viewWillAppear(animated)
     }
 

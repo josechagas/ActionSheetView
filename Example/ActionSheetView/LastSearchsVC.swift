@@ -41,7 +41,7 @@ class LastSearchsVC: UIViewController,ActionSheetView,UISearchBarDelegate {
         }
     }
     
-    //MARK: - BottomView methods
+    //MARK: - ActionSheetView methods
     
     func didChangeToState(_ state: ActionSheetViewState) {
         if state == .small{

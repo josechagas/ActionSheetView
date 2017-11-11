@@ -15,7 +15,20 @@
 		8833AF4C1FA69D59006790EC /* LastSearchsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833AF491FA69D59006790EC /* LastSearchsVC.swift */; };
 		8833AF4D1FA69D59006790EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833AF4A1FA69D59006790EC /* ViewController.swift */; };
 		8833AF4E1FA69D59006790EC /* LastSearchsVC+UITableViewDataSource+Delega.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833AF4B1FA69D59006790EC /* LastSearchsVC+UITableViewDataSource+Delega.swift */; };
-		8833AF501FA69EF1006790EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8833AF4F1FA69EF1006790EC /* Main.storyboard */; };
+		8833AF501FA69EF1006790EC /* Dev.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8833AF4F1FA69EF1006790EC /* Dev.storyboard */; };
+		88AE8F151FB71D3100C55CB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88AE8F141FB71D3100C55CB0 /* Main.storyboard */; };
+		88AE8F171FB71F1900C55CB0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AE8F161FB71F1900C55CB0 /* MapKit.framework */; };
+		88AE8F1C1FB7224100C55CB0 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE8F1B1FB7224100C55CB0 /* MapVC.swift */; };
+		88AE8F1E1FB726A500C55CB0 /* MapVC+ActionSheetViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE8F1D1FB726A500C55CB0 /* MapVC+ActionSheetViewDelegate.swift */; };
+		88AE8F201FB7274400C55CB0 /* MapVC+MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE8F1F1FB7274400C55CB0 /* MapVC+MKMapViewDelegate.swift */; };
+		88AE8F221FB72C9C00C55CB0 /* MapSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE8F211FB72C9C00C55CB0 /* MapSearchVC.swift */; };
+		88AE8F261FB72D4900C55CB0 /* MapSearchVC+UITableViewDelegate+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE8F251FB72D4900C55CB0 /* MapSearchVC+UITableViewDelegate+DataSource.swift */; };
+		88AE8F281FB7321000C55CB0 /* MKLocalSearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE8F271FB7321000C55CB0 /* MKLocalSearchHelper.swift */; };
+		88AE8F2A1FB7355D00C55CB0 /* MapSearchVC+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE8F291FB7355D00C55CB0 /* MapSearchVC+UISearchBarDelegate.swift */; };
+		88AE8F2E1FB742DB00C55CB0 /* TableVBackLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88AE8F2C1FB742DB00C55CB0 /* TableVBackLoadingView.xib */; };
+		88AE8F2F1FB742DB00C55CB0 /* TableViewBackLV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE8F2D1FB742DB00C55CB0 /* TableViewBackLV.swift */; };
+		88AE8F331FB742F200C55CB0 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE8F311FB742F200C55CB0 /* NoDataView.swift */; };
+		88AE8F341FB742F200C55CB0 /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88AE8F321FB742F200C55CB0 /* NoDataView.xib */; };
 		FFBAF273C117B83C880223A4 /* Pods_ActionSheetView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD9B7916C84B67685C008CE /* Pods_ActionSheetView_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +60,20 @@
 		8833AF491FA69D59006790EC /* LastSearchsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastSearchsVC.swift; sourceTree = "<group>"; };
 		8833AF4A1FA69D59006790EC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8833AF4B1FA69D59006790EC /* LastSearchsVC+UITableViewDataSource+Delega.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LastSearchsVC+UITableViewDataSource+Delega.swift"; sourceTree = "<group>"; };
-		8833AF4F1FA69EF1006790EC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8833AF4F1FA69EF1006790EC /* Dev.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dev.storyboard; sourceTree = "<group>"; };
+		88AE8F141FB71D3100C55CB0 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		88AE8F161FB71F1900C55CB0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		88AE8F1B1FB7224100C55CB0 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		88AE8F1D1FB726A500C55CB0 /* MapVC+ActionSheetViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapVC+ActionSheetViewDelegate.swift"; sourceTree = "<group>"; };
+		88AE8F1F1FB7274400C55CB0 /* MapVC+MKMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapVC+MKMapViewDelegate.swift"; sourceTree = "<group>"; };
+		88AE8F211FB72C9C00C55CB0 /* MapSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchVC.swift; sourceTree = "<group>"; };
+		88AE8F251FB72D4900C55CB0 /* MapSearchVC+UITableViewDelegate+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapSearchVC+UITableViewDelegate+DataSource.swift"; sourceTree = "<group>"; };
+		88AE8F271FB7321000C55CB0 /* MKLocalSearchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKLocalSearchHelper.swift; sourceTree = "<group>"; };
+		88AE8F291FB7355D00C55CB0 /* MapSearchVC+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapSearchVC+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
+		88AE8F2C1FB742DB00C55CB0 /* TableVBackLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableVBackLoadingView.xib; sourceTree = "<group>"; };
+		88AE8F2D1FB742DB00C55CB0 /* TableViewBackLV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewBackLV.swift; sourceTree = "<group>"; };
+		88AE8F311FB742F200C55CB0 /* NoDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
+		88AE8F321FB742F200C55CB0 /* NoDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoDataView.xib; sourceTree = "<group>"; };
 		9DCE696C56AB31D3CBF22631 /* Pods-ActionSheetView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionSheetView_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActionSheetView_Example/Pods-ActionSheetView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A7EECBB5A8457BB133C13376 /* Pods-ActionSheetView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionSheetView_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActionSheetView_Tests/Pods-ActionSheetView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AAD9B7916C84B67685C008CE /* Pods_ActionSheetView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActionSheetView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88AE8F171FB71F1900C55CB0 /* MapKit.framework in Frameworks */,
 				FFBAF273C117B83C880223A4 /* Pods_ActionSheetView_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,13 +124,12 @@
 		607FACD21AFB9204008FA782 /* Example for ActionSheetView */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				8833AF491FA69D59006790EC /* LastSearchsVC.swift */,
-				8833AF4B1FA69D59006790EC /* LastSearchsVC+UITableViewDataSource+Delega.swift */,
-				8833AF4A1FA69D59006790EC /* ViewController.swift */,
-				8833AF4F1FA69EF1006790EC /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				88AE8F301FB742F200C55CB0 /* InfoBackView */,
+				88AE8F2B1FB742DB00C55CB0 /* BackLoadView */,
+				88AE8F1A1FB7221500C55CB0 /* Main */,
+				88AE8F141FB71D3100C55CB0 /* Main.storyboard */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				88AE8F191FB7213800C55CB0 /* Dev */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for ActionSheetView";
@@ -113,6 +139,8 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -148,11 +176,71 @@
 		886D924D504BD8B6CBA19993 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88AE8F161FB71F1900C55CB0 /* MapKit.framework */,
 				AAD9B7916C84B67685C008CE /* Pods_ActionSheetView_Example.framework */,
 				4C8CC21D541FB1ABE379AD02 /* Pods_ActionSheetView_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
+		};
+		88AE8F191FB7213800C55CB0 /* Dev */ = {
+			isa = PBXGroup;
+			children = (
+				8833AF491FA69D59006790EC /* LastSearchsVC.swift */,
+				8833AF4B1FA69D59006790EC /* LastSearchsVC+UITableViewDataSource+Delega.swift */,
+				8833AF4A1FA69D59006790EC /* ViewController.swift */,
+				8833AF4F1FA69EF1006790EC /* Dev.storyboard */,
+			);
+			name = Dev;
+			sourceTree = "<group>";
+		};
+		88AE8F1A1FB7221500C55CB0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				88AE8F241FB72D3500C55CB0 /* MapSearchVC */,
+				88AE8F231FB72D2A00C55CB0 /* MapVC */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		88AE8F231FB72D2A00C55CB0 /* MapVC */ = {
+			isa = PBXGroup;
+			children = (
+				88AE8F1B1FB7224100C55CB0 /* MapVC.swift */,
+				88AE8F1D1FB726A500C55CB0 /* MapVC+ActionSheetViewDelegate.swift */,
+				88AE8F1F1FB7274400C55CB0 /* MapVC+MKMapViewDelegate.swift */,
+			);
+			name = MapVC;
+			sourceTree = "<group>";
+		};
+		88AE8F241FB72D3500C55CB0 /* MapSearchVC */ = {
+			isa = PBXGroup;
+			children = (
+				88AE8F271FB7321000C55CB0 /* MKLocalSearchHelper.swift */,
+				88AE8F211FB72C9C00C55CB0 /* MapSearchVC.swift */,
+				88AE8F251FB72D4900C55CB0 /* MapSearchVC+UITableViewDelegate+DataSource.swift */,
+				88AE8F291FB7355D00C55CB0 /* MapSearchVC+UISearchBarDelegate.swift */,
+			);
+			name = MapSearchVC;
+			sourceTree = "<group>";
+		};
+		88AE8F2B1FB742DB00C55CB0 /* BackLoadView */ = {
+			isa = PBXGroup;
+			children = (
+				88AE8F2C1FB742DB00C55CB0 /* TableVBackLoadingView.xib */,
+				88AE8F2D1FB742DB00C55CB0 /* TableViewBackLV.swift */,
+			);
+			path = BackLoadView;
+			sourceTree = SOURCE_ROOT;
+		};
+		88AE8F301FB742F200C55CB0 /* InfoBackView */ = {
+			isa = PBXGroup;
+			children = (
+				88AE8F311FB742F200C55CB0 /* NoDataView.swift */,
+				88AE8F321FB742F200C55CB0 /* NoDataView.xib */,
+			);
+			path = InfoBackView;
+			sourceTree = SOURCE_ROOT;
 		};
 		E80D55E3743C9632E4DBA47E /* Pods */ = {
 			isa = PBXGroup;
@@ -223,6 +311,11 @@
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = T6C28BT29G;
 						LastSwiftMigration = 0900;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -256,9 +349,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8833AF501FA69EF1006790EC /* Main.storyboard in Resources */,
+				8833AF501FA69EF1006790EC /* Dev.storyboard in Resources */,
+				88AE8F151FB71D3100C55CB0 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				88AE8F341FB742F200C55CB0 /* NoDataView.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				88AE8F2E1FB742DB00C55CB0 /* TableVBackLoadingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,10 +391,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ActionSheetView_Example/Pods-ActionSheetView_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetView/ActionSheetView.framework",
+				"${BUILT_PRODUCTS_DIR}/Shimmer/Shimmer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Shimmer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -378,9 +476,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88AE8F1C1FB7224100C55CB0 /* MapVC.swift in Sources */,
+				88AE8F281FB7321000C55CB0 /* MKLocalSearchHelper.swift in Sources */,
+				88AE8F2A1FB7355D00C55CB0 /* MapSearchVC+UISearchBarDelegate.swift in Sources */,
+				88AE8F221FB72C9C00C55CB0 /* MapSearchVC.swift in Sources */,
+				88AE8F261FB72D4900C55CB0 /* MapSearchVC+UITableViewDelegate+DataSource.swift in Sources */,
+				88AE8F201FB7274400C55CB0 /* MapVC+MKMapViewDelegate.swift in Sources */,
 				8833AF4D1FA69D59006790EC /* ViewController.swift in Sources */,
+				88AE8F331FB742F200C55CB0 /* NoDataView.swift in Sources */,
 				8833AF4E1FA69D59006790EC /* LastSearchsVC+UITableViewDataSource+Delega.swift in Sources */,
+				88AE8F1E1FB726A500C55CB0 /* MapVC+ActionSheetViewDelegate.swift in Sources */,
 				8833AF4C1FA69D59006790EC /* LastSearchsVC.swift in Sources */,
+				88AE8F2F1FB742DB00C55CB0 /* TableViewBackLV.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,7 +631,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.josechagas.ActionSheetView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -541,7 +648,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.josechagas.ActionSheetView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
