@@ -27,7 +27,7 @@ DESC
   s.homepage         = 'https://github.com/josechagas/ActionSheetView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'josechagas' => 'chagasjoselucas@nucleus.eti.br' }
+  s.author           = { 'josechagas' => 'chagasjoselucas@gmail.com' }
   s.source           = { :git => 'https://github.com/josechagas/ActionSheetView.git', :tag => s.version.to_s }
 #s.source           = { :git => 'https://github.com/josechagas/ActionSheetView.git', :commit => "0e0e43fd2cf6290a36e21dcf1c7182da90a41182" }
 

@@ -124,8 +124,7 @@
 		607FACD21AFB9204008FA782 /* Example for ActionSheetView */ = {
 			isa = PBXGroup;
 			children = (
-				88AE8F301FB742F200C55CB0 /* InfoBackView */,
-				88AE8F2B1FB742DB00C55CB0 /* BackLoadView */,
+				88AE8F351FB8651F00C55CB0 /* Helpers */,
 				88AE8F1A1FB7221500C55CB0 /* Main */,
 				88AE8F141FB71D3100C55CB0 /* Main.storyboard */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -230,7 +229,8 @@
 				88AE8F2C1FB742DB00C55CB0 /* TableVBackLoadingView.xib */,
 				88AE8F2D1FB742DB00C55CB0 /* TableViewBackLV.swift */,
 			);
-			path = BackLoadView;
+			name = BackLoadView;
+			path = ActionSheetView/BackLoadView;
 			sourceTree = SOURCE_ROOT;
 		};
 		88AE8F301FB742F200C55CB0 /* InfoBackView */ = {
@@ -239,8 +239,18 @@
 				88AE8F311FB742F200C55CB0 /* NoDataView.swift */,
 				88AE8F321FB742F200C55CB0 /* NoDataView.xib */,
 			);
-			path = InfoBackView;
+			name = InfoBackView;
+			path = ActionSheetView/InfoBackView;
 			sourceTree = SOURCE_ROOT;
+		};
+		88AE8F351FB8651F00C55CB0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				88AE8F301FB742F200C55CB0 /* InfoBackView */,
+				88AE8F2B1FB742DB00C55CB0 /* BackLoadView */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
 		};
 		E80D55E3743C9632E4DBA47E /* Pods */ = {
 			isa = PBXGroup;
