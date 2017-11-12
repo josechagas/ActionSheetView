@@ -3,8 +3,7 @@
 [![License](https://img.shields.io/cocoapods/l/ActionSheetView.svg?style=flat)](http://cocoapods.org/pods/ActionSheetView)
 [![Platform](https://img.shields.io/cocoapods/p/ActionSheetView.svg?style=flat)](http://cocoapods.org/pods/ActionSheetView)
 
-
-Project for managing and using any ViewController with an ActionSheet style.
+A Simple way to manage and use any ViewController as  actionsheets.
 =======
 
 Here are some screenshots showing some examples of what you can do with ActionSheetView:
