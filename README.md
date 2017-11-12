@@ -7,6 +7,9 @@
 Project for managing and using any ViewController with an ActionSheet style.
 =======
 
+Here are some screenshots showing some examples of what you can do with ActionSheetView:
+
+![Example1 Screenshots](https://raw.githubusercontent.com/josechagas/ActionSheetView/master/ReadmeAssets/screens1.png)
 
 ## Example
 
