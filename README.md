@@ -8,7 +8,7 @@ A Simple way to manage and use any ViewController as  actionsheets.
 
 Here are some screenshots showing some examples of what you can do with ActionSheetView:
 
-![Example1 Screenshots](https://raw.githubusercontent.com/josechagas/ActionSheetView/master/ReadmeAssets/screens1.png)
+![Example1 Screenshots](https://raw.githubusercontent.com/josechagas/ActionSheetView/master/ReadmeAssets/screens1.jpg)
 
 ## Example
 
