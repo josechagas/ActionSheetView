@@ -5,7 +5,7 @@
 //  Created by José Lucas Souza das Chagas on 02/11/17.
 //
 
-import Foundation
+import UIKit
 
 
 extension ASManagerVC{

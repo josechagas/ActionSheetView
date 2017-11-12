@@ -10,7 +10,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ActionSheetView'
-  s.version          = '0.4.3'
+  s.version          = '0.5.0'
   s.summary          = 'ActionSheetView they are cool and now you have the possibility to create customized ones.'
 
 # This description is used to generate tags and improve search results.
@@ -34,7 +34,7 @@ DESC
 
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'Classes/**/*'
   

@@ -1,5 +1,5 @@
 PODS:
-  - ActionSheetView (0.4.2)
+  - ActionSheetView (0.4.3)
   - Shimmer (1.0.2)
 
 DEPENDENCIES:
@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  ActionSheetView: 68d864f97697710c5b3087d67b2eba0adc5e342e
+  ActionSheetView: 8ee3bbbd96276e21b16250cdc3a4d70be13c5a30
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
 
 PODFILE CHECKSUM: b6bc31af2c6c7435e424704748d856142a971304
