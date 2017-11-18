@@ -49,7 +49,7 @@
         <scene sceneID="NHk-ci-4yR">
             <objects>
                 <viewController id="Nu3-sG-JdY" customClass="MapSearchVC" customModule="ActionSheetView_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="JGj-X9-z3T">
+                    <view key="view" contentMode="scaleToFill" id="JGj-X9-z3T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -168,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1aM-S5-ppF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124" y="63"/>
+            <point key="canvasLocation" x="124" y="62.518740629685162"/>
         </scene>
     </scenes>
     <resources>

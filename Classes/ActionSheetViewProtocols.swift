@@ -18,6 +18,18 @@ public protocol ActionSheetViewDelegate{
     func initialSize()->CGSize
     func finalSize()->CGSize
     
+    func showDarkBackgroundLayer()->Bool
+    func darkLayerOpacityForState(_ state:ActionSheetViewState)->Float
+}
+
+public extension ActionSheetViewDelegate{
+    func showDarkBackgroundLayer()->Bool{
+        return true
+    }
+    
+    func darkLayerOpacityForState(_ state:ActionSheetViewState)->Float{
+        return state == .big ? 0.45 : 0
+    }
 }
 
 /**

@@ -26,6 +26,13 @@ class MapSearchVC: UIViewController,ActionSheetView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowOffset = CGSize(width: 0, height: -1)
+        view.layer.shadowRadius = 2
+        view.layer.masksToBounds = false
+         */
         resultsQuantLabel.text = ""
         searchBar.delegate = self
         setUpTableView()
@@ -120,7 +127,6 @@ class MapSearchVC: UIViewController,ActionSheetView {
     func uiChangesFor(Progress quant: CGFloat, BigStateProgress big: CGFloat, SmallStateProgress small: CGFloat) {
         self.view.layer.cornerRadius = 15 - 15*quant
         self.titleLabel.alpha = quant
-        
         searchTopDistC.constant = 56*quant - 21
         barTopDist.constant = 24 - 20*quant
     }

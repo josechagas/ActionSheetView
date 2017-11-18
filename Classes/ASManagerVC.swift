@@ -13,6 +13,7 @@ public class ASViewSegue:UIStoryboardSegue{
         super.init(identifier: identifier, source: source, destination: destination)
         if let teste = source as? ASManagerVC, teste.ActionSheetVCSegueID == identifier{
             teste.prepateContainerView(vc: destination)
+            
         }
     }
     public override func perform() {
@@ -28,12 +29,17 @@ public struct ActionSheetViewNotifications{
 open class ASManagerVC: UIViewController,ActionSheetViewManager {
     
     @IBInspectable
-    public var ActionSheetVCSegueID:String?
-    private(set) var containerView:UIView!
+    open var ActionSheetVCSegueID:String?
+
+    private var darkLayer:CALayer?
+    private(set) var containerView:UIView!{
+        didSet{
+            tryToAddDarkLayer()
+        }
+    }
 
     public var currentState: ActionSheetViewState = .small{
         didSet{
-            
             asView?.didChangeToState(currentState)
             NotificationCenter.default.post(name: ActionSheetViewNotifications.didChangeState, object: self as ActionSheetViewManager)
         }
@@ -49,7 +55,12 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
     }
     
     
-    public var delegate:ActionSheetViewDelegate?
+    public var delegate:ActionSheetViewDelegate?{
+        didSet{
+            tryToAddDarkLayer()
+        }
+
+    }
     private weak var asView:ActionSheetView?
     
     
@@ -66,8 +77,11 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         return delegate?.finalSize() ?? CGSize(width: self.view.frame.width, height: self.view.frame.height - 100)
     }
     
+    
+    
     open override func viewWillAppear(_ animated: Bool) {
         self.performSegue(withIdentifier: ActionSheetVCSegueID!, sender: nil)
+        tryToAddDarkLayer()
         super.viewWillAppear(animated)
     }
 
@@ -87,6 +101,47 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         }
     }
     
+    //MARK: - DarkLayer
+    
+    fileprivate func tryToAddDarkLayer(){
+        if let d = delegate{
+            if  d.showDarkBackgroundLayer(){
+                self.addDarkLayer()
+            }
+            else{
+                self.darkLayer?.removeFromSuperlayer()
+            }
+        }
+    }
+    
+    fileprivate func addDarkLayer(){
+        guard let _ = darkLayer else{
+            if containerView != nil{
+                darkLayer = CALayer()
+                darkLayer?.backgroundColor = UIColor.black.cgColor
+                darkLayer?.frame = CGRect(x: -10, y: -10, width: self.view.frame.width + 20, height: self.view.frame.height + 20)
+                self.view.layer.insertSublayer(darkLayer!, below: containerView.layer)
+                darkLayerSmall()
+            }
+            return
+        }
+        darkLayerSmall()
+    }
+
+    private func darkLayerFor(Progress progress:CGFloat){
+        let max = delegate?.darkLayerOpacityForState(.big) ?? 0.4
+        let min = delegate?.darkLayerOpacityForState(.small) ?? 0
+        self.darkLayer?.opacity = min + Float(progress)*(max - min)
+    }
+    
+    private func darkLayerSmall(){
+        self.darkLayer?.opacity = delegate?.darkLayerOpacityForState(.small) ?? 0
+    }
+    
+    private func darkLayerBig(){
+        self.darkLayer?.opacity = delegate?.darkLayerOpacityForState(.big) ?? 0.4
+    }
+    
     //MARK: - ActionSheetView
 
     fileprivate func prepateContainerView(vc:UIViewController){
@@ -101,24 +156,21 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
             containerView.frame = CGRect(x:  (self.view.frame.width - self.initialSize.width)/2, y: self.view.frame.height - self.initialSize.height, width: self.initialSize.width, height: self.finalSize.height)
             print(containerView.bounds.width)
 
-            containerView.clipsToBounds = true
             containerView.translatesAutoresizingMaskIntoConstraints = true
-            containerView.layer.cornerRadius = 20
             self.view.addSubview(containerView)
             
             addGestures()
+            
             delegate?.bottomVC(vc)
-            
             //addConstraints()
-            
             asView?.didChangeToState(currentState)
             self.changeToState(currentState, Animated: false)
             return
         }
 
-        delegate?.bottomVC(vc)
         asView?.didChangeToState(currentState)
         self.changeToState(currentState, Animated: false)
+        
     }
     
     
@@ -140,8 +192,8 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
                 })
                 
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration, animations: {
+                    self.darkLayerSmall()
                     self.containerView.center = CGPoint(x: center.x, y: smallMaxYValue)
-
                     let scaleTransf = CGAffineTransform(scaleX: self.initialSize.width/startWidth, y: 1)
                     self.containerView.transform = scaleTransf
                 })
@@ -154,6 +206,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
             asView?.apperanceChangesFor(NewState: .small)
             self.containerView.layoutIfNeeded()
 
+            self.darkLayerSmall()
             self.containerView.center = CGPoint(x: center.x, y: smallMaxYValue)
             let scaleTransf = CGAffineTransform(scaleX: self.initialSize.width/self.containerView.bounds.width, y: 1)
             self.containerView.transform = scaleTransf
@@ -177,6 +230,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
                 })
                 
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration, animations: {
+                    self.darkLayerBig()
                     self.containerView.center = CGPoint(x: center.x, y: bigMaxYValue)
                     let scaleTransf = CGAffineTransform(scaleX: self.finalSize.width/startWidth, y: 1)
                     self.containerView.transform = scaleTransf
@@ -191,6 +245,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
             self.asView?.apperanceChangesFor(NewState: .big)
             self.containerView.layoutIfNeeded()
 
+            self.darkLayerBig()
             self.containerView.center = CGPoint(x: center.x, y: bigMaxYValue)
             let scaleTransf = CGAffineTransform(scaleX: self.finalSize.width/self.containerView.bounds.width, y: 1)
             self.containerView.transform = scaleTransf
@@ -243,6 +298,11 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         self.containerView.transform = scaleTransf
         
         self.asView?.uiChangesFor(Progress: progress, BigStateProgress: 1, SmallStateProgress: 0)
+        
+        
+        if delegate?.showDarkBackgroundLayer() ?? false{
+            darkLayerFor(Progress: progress)
+        }
         
         let newState:ActionSheetViewState = (newCenterY == bigMaxYValue ? .big : .small)
         if newState != self.currentState{

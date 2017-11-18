@@ -20,8 +20,8 @@ extension MapVC:ActionSheetViewDelegate{
         return CGSize(width: self.view.frame.width, height: self.view.frame.height - 100)
     }
     
-    func bottomVC(_ vc: UIViewController) {
-        
+    func bottomVC(_ vc: UIViewController) {        
+        //vc.view.layer.cornerRadius = 15
         let searchVC = vc as! MapSearchVC
         
         searchVC.showOnMap = {
@@ -31,5 +31,4 @@ extension MapVC:ActionSheetViewDelegate{
         
     }
 
-    
 }
