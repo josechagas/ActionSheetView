@@ -12,7 +12,7 @@ public class ASViewSegue:UIStoryboardSegue{
     override init(identifier: String?, source: UIViewController, destination: UIViewController) {
         super.init(identifier: identifier, source: source, destination: destination)
         if let teste = source as? ASManagerVC, teste.ActionSheetVCSegueID == identifier{
-            teste.prepateContainerView(vc: destination)
+            teste.prepareContainerView(vc: destination)
             
         }
     }
@@ -40,6 +40,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
 
     public var currentState: ActionSheetViewState = .small{
         didSet{
+            updateSubViewsInterations()
             asView?.didChangeToState(currentState)
             NotificationCenter.default.post(name: ActionSheetViewNotifications.didChangeState, object: self as ActionSheetViewManager)
         }
@@ -90,6 +91,28 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         // Dispose of any resources that can be recreated.
     }
     
+    /**
+     This method enable or disable user interaction with some subviews accordingly to currenState and delegate options
+     */
+    private func updateSubViewsInterations(){
+        if let d = delegate{
+            if d.showDarkBackgroundLayer(){
+                self.view.subviews.forEach({ (v) in
+                    if !v.isEqual(self.containerView){
+                        v.isUserInteractionEnabled = (currentState == .small)
+                    }
+                })
+                return
+            }
+        }
+        
+        self.view.subviews.forEach({ (v) in
+            if !v.isEqual(self.containerView){
+                v.isUserInteractionEnabled = true
+            }
+        })
+    }
+    
     //MARK: - ActionSheetViewManager methods
     
     public func changeToState(_ state: ActionSheetViewState, Animated animated: Bool) {
@@ -101,6 +124,18 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         }
     }
     
+    public func reloadActionSheetView(){
+        
+        if let asVC = self.childViewControllers.first(where: {$0 is ActionSheetView}){
+            self.delegate?.bottomVC(asVC)
+        }
+        self.containerView.frame.size.height = self.finalSize.height
+        tryToAddDarkLayer()
+        asView?.didChangeToState(currentState)
+        self.changeToState(currentState, Animated: true)
+        
+    }
+
     //MARK: - DarkLayer
     
     fileprivate func tryToAddDarkLayer(){
@@ -110,6 +145,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
             }
             else{
                 self.darkLayer?.removeFromSuperlayer()
+                self.darkLayer = nil
             }
         }
     }
@@ -144,7 +180,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
     
     //MARK: - ActionSheetView
 
-    fileprivate func prepateContainerView(vc:UIViewController){
+    fileprivate func prepareContainerView(vc:UIViewController){
         guard let _ = containerView else{
             if let asView = vc as? ActionSheetView{
                 asView.controller = self
@@ -173,6 +209,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         
     }
     
+
     
     //MARK: ActionSheetView animation methods
     
@@ -183,6 +220,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         
         self.asView?.constraintChangesFor(NewState: .small)
         if animate{
+
             let startWidth = self.containerView.bounds.width
             UIView.animateKeyframes(withDuration: duration, delay: 0, options: UIViewKeyframeAnimationOptions.beginFromCurrentState, animations: {
                 
@@ -196,6 +234,8 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
                     self.containerView.center = CGPoint(x: center.x, y: smallMaxYValue)
                     let scaleTransf = CGAffineTransform(scaleX: self.initialSize.width/startWidth, y: 1)
                     self.containerView.transform = scaleTransf
+                    //self.containerView.bounds.size = CGSize(width: self.initialSize.width, height: self.containerView.bounds.size.height)
+                    
                 })
                 
             }) { (finished) in
@@ -208,9 +248,11 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
 
             self.darkLayerSmall()
             self.containerView.center = CGPoint(x: center.x, y: smallMaxYValue)
+            
             let scaleTransf = CGAffineTransform(scaleX: self.initialSize.width/self.containerView.bounds.width, y: 1)
             self.containerView.transform = scaleTransf
-
+            //self.containerView.bounds.size = CGSize(width: self.initialSize.width, height: self.containerView.bounds.size.height)
+            
             self.currentState = .small
         }
     }
@@ -220,6 +262,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         let bigMaxYValue = self.view.frame.height - finalSize.height/2
         
         self.asView?.constraintChangesFor(NewState: .big)
+        
         if animate{
             let startWidth = self.containerView.bounds.width
             UIView.animateKeyframes(withDuration: duration, delay: 0, options: UIViewKeyframeAnimationOptions.beginFromCurrentState, animations: {
@@ -232,9 +275,10 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration, animations: {
                     self.darkLayerBig()
                     self.containerView.center = CGPoint(x: center.x, y: bigMaxYValue)
+                    
                     let scaleTransf = CGAffineTransform(scaleX: self.finalSize.width/startWidth, y: 1)
                     self.containerView.transform = scaleTransf
-
+                    //self.containerView.bounds.size = CGSize(width: self.finalSize.width, height: self.containerView.bounds.size.height)
                 })
 
             }) { (finished) in
@@ -242,13 +286,16 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
             }
         }
         else{
+            
             self.asView?.apperanceChangesFor(NewState: .big)
             self.containerView.layoutIfNeeded()
 
             self.darkLayerBig()
             self.containerView.center = CGPoint(x: center.x, y: bigMaxYValue)
+            
             let scaleTransf = CGAffineTransform(scaleX: self.finalSize.width/self.containerView.bounds.width, y: 1)
             self.containerView.transform = scaleTransf
+            //self.containerView.bounds.size = CGSize(width: self.finalSize.width, height: self.containerView.bounds.size.height)
             
             self.currentState = .big
         }
