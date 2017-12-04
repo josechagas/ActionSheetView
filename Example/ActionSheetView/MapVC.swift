@@ -13,6 +13,8 @@ import ActionSheetView
 class MapVC: ASManagerVC {
     let manager = CLLocationManager()
 
+    var stateOne:Bool = true
+    
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,10 @@ class MapVC: ASManagerVC {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func reloadAction(_ sender: Any) {
+        stateOne = !stateOne
+        reloadActionSheetView()
+    }
     //MARK: - MapView
     
     func setUpMapView(){
