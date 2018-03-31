@@ -41,6 +41,8 @@ Create a class that inherit from 'ASManagerVC':
 class MyASManagerVC: ASManagerVC
 ```
 
+IMPORTANT: If your 'MyASManagerVC' overrides the method 'viewWillAppear' you have to call 'super.viewWillAppear'.
+
 ### Step 3: Defining my Delegate
 Choose some class and implement the protocol 'ActionSheetViewDelegate'
 
