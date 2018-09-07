@@ -29,6 +29,7 @@ extension ASManagerVC{
     
     @objc private func didTapOnASView(tapGes:UITapGestureRecognizer){
         let location = tapGes.location(in: self.view)
+        guard let containerView = self.containerView else{return}
         let isInsideASView = containerView.frame.contains(location)
         
         if currentState == .small && isInsideASView{
@@ -51,7 +52,7 @@ extension ASManagerVC{
         
         let upSwipeGes = UISwipeGestureRecognizer(target: self, action: #selector(ASManagerVC.didSwipeOnASView(swipeGes:)))
         upSwipeGes.direction = .up
-        self.containerView.addGestureRecognizer(upSwipeGes)
+        self.containerView?.addGestureRecognizer(upSwipeGes)
         
         return upSwipeGes
         
@@ -62,7 +63,7 @@ extension ASManagerVC{
         
         let downSwipeGes = UISwipeGestureRecognizer(target: self, action: #selector(ASManagerVC.didSwipeOnASView(swipeGes:)))
         downSwipeGes.direction = .down
-        self.containerView.addGestureRecognizer(downSwipeGes)
+        self.containerView?.addGestureRecognizer(downSwipeGes)
         
         return downSwipeGes
     }

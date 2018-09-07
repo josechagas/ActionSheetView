@@ -32,7 +32,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
     open var ActionSheetVCSegueID:String?
 
     private var darkLayer:CALayer?
-    private(set) var containerView:UIView!{
+    private(set) var containerView:UIView?{
         didSet{
             tryToAddDarkLayer()
         }
@@ -49,9 +49,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
     @IBInspectable
     public var asViewIsHidden:Bool = false{
         didSet{
-            if containerView != nil{
-                containerView.isHidden = asViewIsHidden
-            }
+            containerView?.isHidden = asViewIsHidden
         }
     }
     
@@ -129,7 +127,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         if let asVC = self.childViewControllers.first(where: {$0 is ActionSheetView}){
             self.delegate?.bottomVC(asVC)
         }
-        self.containerView.frame.size.height = self.finalSize.height
+        self.containerView?.frame.size.height = self.finalSize.height
         tryToAddDarkLayer()
         asView?.didChangeToState(currentState)
         self.changeToState(currentState, Animated: true)
@@ -152,7 +150,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
     
     fileprivate func addDarkLayer(){
         guard let _ = darkLayer else{
-            if containerView != nil{
+            if let containerView = containerView {
                 darkLayer = CALayer()
                 darkLayer?.backgroundColor = UIColor.black.cgColor
                 darkLayer?.frame = CGRect(x: -10, y: -10, width: self.view.frame.width + 20, height: self.view.frame.height + 20)
@@ -189,16 +187,18 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
             
             self.addChildViewController(vc)
             containerView = vc.view
-            containerView.frame = CGRect(x:  (self.view.frame.width - self.initialSize.width)/2, y: self.view.frame.height - self.initialSize.height, width: self.initialSize.width, height: self.finalSize.height)
-            print(containerView.bounds.width)
+            guard let cv = containerView else{return}
+            
+            cv.frame = CGRect(x:  (self.view.frame.width - self.initialSize.width)/2, y: self.view.frame.height - self.initialSize.height, width: self.initialSize.width, height: self.finalSize.height)
+            print(cv.bounds.width)
 
-            containerView.translatesAutoresizingMaskIntoConstraints = true
-            self.view.addSubview(containerView)
+            cv.translatesAutoresizingMaskIntoConstraints = true
+            
+            self.view.addSubview(cv)
             
             addGestures()
             
             delegate?.bottomVC(vc)
-            //addConstraints()
             asView?.didChangeToState(currentState)
             self.changeToState(currentState, Animated: false)
             return
@@ -214,26 +214,26 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
     //MARK: ActionSheetView animation methods
     
     public func changeToSmallDimensions(Animate animate:Bool,Duration duration:TimeInterval = 0.4){
-
-        let center = self.containerView.center
+        guard let containerView = self.containerView else{return}
+        let center = containerView.center
         let smallMaxYValue = self.view.frame.height + finalSize.height/2 - initialSize.height
         
         self.asView?.constraintChangesFor(NewState: .small)
         if animate{
 
-            let startWidth = self.containerView.bounds.width
+            let startWidth = containerView.bounds.width
             UIView.animateKeyframes(withDuration: duration, delay: 0, options: UIViewKeyframeAnimationOptions.beginFromCurrentState, animations: {
                 
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration, animations: {
                     self.asView?.apperanceChangesFor(NewState: .small)
-                    self.containerView.layoutIfNeeded()
+                    containerView.layoutIfNeeded()
                 })
                 
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration, animations: {
                     self.darkLayerSmall()
-                    self.containerView.center = CGPoint(x: center.x, y: smallMaxYValue)
+                    containerView.center = CGPoint(x: center.x, y: smallMaxYValue)
                     let scaleTransf = CGAffineTransform(scaleX: self.initialSize.width/startWidth, y: 1)
-                    self.containerView.transform = scaleTransf
+                    containerView.transform = scaleTransf
                     //self.containerView.bounds.size = CGSize(width: self.initialSize.width, height: self.containerView.bounds.size.height)
                     
                 })
@@ -244,13 +244,13 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         }
         else{
             asView?.apperanceChangesFor(NewState: .small)
-            self.containerView.layoutIfNeeded()
+            containerView.layoutIfNeeded()
 
             self.darkLayerSmall()
-            self.containerView.center = CGPoint(x: center.x, y: smallMaxYValue)
+            containerView.center = CGPoint(x: center.x, y: smallMaxYValue)
             
-            let scaleTransf = CGAffineTransform(scaleX: self.initialSize.width/self.containerView.bounds.width, y: 1)
-            self.containerView.transform = scaleTransf
+            let scaleTransf = CGAffineTransform(scaleX: self.initialSize.width/containerView.bounds.width, y: 1)
+            containerView.transform = scaleTransf
             //self.containerView.bounds.size = CGSize(width: self.initialSize.width, height: self.containerView.bounds.size.height)
             
             self.currentState = .small
@@ -258,26 +258,28 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
     }
     
     public func changeToBigDimensions(Animate animate:Bool,Duration duration:TimeInterval = 0.4){
-        let center = self.containerView.center
+        guard let containerView = self.containerView else{return}
+
+        let center = containerView.center
         let bigMaxYValue = self.view.frame.height - finalSize.height/2
         
         self.asView?.constraintChangesFor(NewState: .big)
         
         if animate{
-            let startWidth = self.containerView.bounds.width
+            let startWidth = containerView.bounds.width
             UIView.animateKeyframes(withDuration: duration, delay: 0, options: UIViewKeyframeAnimationOptions.beginFromCurrentState, animations: {
                 
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration, animations: {
                     self.asView?.apperanceChangesFor(NewState: .big)
-                    self.containerView.layoutIfNeeded()
+                    containerView.layoutIfNeeded()
                 })
                 
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration, animations: {
                     self.darkLayerBig()
-                    self.containerView.center = CGPoint(x: center.x, y: bigMaxYValue)
+                    containerView.center = CGPoint(x: center.x, y: bigMaxYValue)
                     
                     let scaleTransf = CGAffineTransform(scaleX: self.finalSize.width/startWidth, y: 1)
-                    self.containerView.transform = scaleTransf
+                    containerView.transform = scaleTransf
                     //self.containerView.bounds.size = CGSize(width: self.finalSize.width, height: self.containerView.bounds.size.height)
                 })
 
@@ -288,13 +290,13 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         else{
             
             self.asView?.apperanceChangesFor(NewState: .big)
-            self.containerView.layoutIfNeeded()
+            containerView.layoutIfNeeded()
 
             self.darkLayerBig()
-            self.containerView.center = CGPoint(x: center.x, y: bigMaxYValue)
+            containerView.center = CGPoint(x: center.x, y: bigMaxYValue)
             
-            let scaleTransf = CGAffineTransform(scaleX: self.finalSize.width/self.containerView.bounds.width, y: 1)
-            self.containerView.transform = scaleTransf
+            let scaleTransf = CGAffineTransform(scaleX: self.finalSize.width/containerView.bounds.width, y: 1)
+            containerView.transform = scaleTransf
             //self.containerView.bounds.size = CGSize(width: self.finalSize.width, height: self.containerView.bounds.size.height)
             
             self.currentState = .big
@@ -308,10 +310,12 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
     //not updated
     
     public func changeDimensionsFor(Desloc d:CGFloat){
+        guard let containerView = self.containerView else{return}
+        
         let initialSize = self.initialSize
         let finalSize = self.finalSize
         
-        let currentCenter = self.containerView.center
+        let currentCenter = containerView.center
         var newCenterY = currentCenter.y + d
         
         //check if it possible
@@ -319,15 +323,15 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         let smallMaxYValue = self.view.frame.height + finalSize.height/2 - initialSize.height
         
         if newCenterY < bigMaxYValue{
-            self.containerView.center = CGPoint(x: currentCenter.x, y: bigMaxYValue)
+            containerView.center = CGPoint(x: currentCenter.x, y: bigMaxYValue)
             newCenterY = bigMaxYValue
         }
         else if newCenterY > smallMaxYValue{
-            self.containerView.center = CGPoint(x: currentCenter.x, y: smallMaxYValue)
+            containerView.center = CGPoint(x: currentCenter.x, y: smallMaxYValue)
             newCenterY = smallMaxYValue
         }
         else{//range valido
-            self.containerView.center = CGPoint(x: currentCenter.x, y: newCenterY)
+            containerView.center = CGPoint(x: currentCenter.x, y: newCenterY)
         }
         
         let desly_100 = smallMaxYValue - bigMaxYValue
@@ -339,10 +343,10 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         let base = currentState == .big ? self.finalSize.width : self.initialSize.width
         let newWidth = currentState == .big ? base - widthIncrement : base + widthIncrement
         
-        let scaleX = newWidth/self.containerView.bounds.width
+        let scaleX = newWidth/containerView.bounds.width
         
         let scaleTransf = CGAffineTransform(scaleX: scaleX, y: 1)
-        self.containerView.transform = scaleTransf
+        containerView.transform = scaleTransf
         
         self.asView?.uiChangesFor(Progress: progress, BigStateProgress: 1, SmallStateProgress: 0)
         

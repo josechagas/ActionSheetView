@@ -13,7 +13,7 @@ extension ASManagerVC{
     @discardableResult
     func addPanGes()->UIPanGestureRecognizer{
         let panGes = UIPanGestureRecognizer(target: self, action: #selector(ASManagerVC.didPanOnASView(panGes:)))
-        self.containerView.addGestureRecognizer(panGes)
+        self.containerView?.addGestureRecognizer(panGes)
         return panGes
     }
     
@@ -30,8 +30,7 @@ extension ASManagerVC{
         }
         else{
             let finalSize = self.finalSize
-            
-            let center = self.containerView.center
+            guard let center = self.containerView?.center else{return}
             let centerY = center.y
             
             if velocity.y < 60 {
