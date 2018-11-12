@@ -124,7 +124,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
     
     public func reloadActionSheetView(){
         
-        if let asVC = self.childViewControllers.first(where: {$0 is ActionSheetView}){
+        if let asVC = self.children.first(where: {$0 is ActionSheetView}){
             self.delegate?.bottomVC(asVC)
         }
         self.containerView?.frame.size.height = self.finalSize.height
@@ -185,7 +185,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
                 self.asView = asView
             }
             
-            self.addChildViewController(vc)
+            self.addChild(vc)
             containerView = vc.view
             guard let cv = containerView else{return}
             
@@ -222,7 +222,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         if animate{
 
             let startWidth = containerView.bounds.width
-            UIView.animateKeyframes(withDuration: duration, delay: 0, options: UIViewKeyframeAnimationOptions.beginFromCurrentState, animations: {
+            UIView.animateKeyframes(withDuration: duration, delay: 0, options: UIView.KeyframeAnimationOptions.beginFromCurrentState, animations: {
                 
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration, animations: {
                     self.asView?.apperanceChangesFor(NewState: .small)
@@ -267,7 +267,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         
         if animate{
             let startWidth = containerView.bounds.width
-            UIView.animateKeyframes(withDuration: duration, delay: 0, options: UIViewKeyframeAnimationOptions.beginFromCurrentState, animations: {
+            UIView.animateKeyframes(withDuration: duration, delay: 0, options: UIView.KeyframeAnimationOptions.beginFromCurrentState, animations: {
                 
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: duration, animations: {
                     self.asView?.apperanceChangesFor(NewState: .big)

@@ -12,7 +12,7 @@ import MapKit
 class MKLocalSearchHelper{
     
     class func newSearchFor(Text text:String,completion:@escaping(_ success:Bool,_ items:[MKMapItem]?)->Void){
-        let localSearchRequest = MKLocalSearchRequest()
+        let localSearchRequest = MKLocalSearch.Request()
         localSearchRequest.naturalLanguageQuery = text
         let localSearch = MKLocalSearch(request: localSearchRequest)
         localSearch.start { (mkResponse, error) in
