@@ -125,6 +125,8 @@ class MapSearchVC: UIViewController,ActionSheetView {
     }
     
     func uiChangesFor(Progress quant: CGFloat, BigStateProgress big: CGFloat, SmallStateProgress small: CGFloat) {
+        print("big:\(big)")
+        print("small:\(small)")
         self.view.layer.cornerRadius = 15 - 15*quant
         self.titleLabel.alpha = quant
         searchTopDistC.constant = 56*quant - 21

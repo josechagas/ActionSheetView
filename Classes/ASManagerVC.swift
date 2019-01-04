@@ -348,7 +348,7 @@ open class ASManagerVC: UIViewController,ActionSheetViewManager {
         let scaleTransf = CGAffineTransform(scaleX: scaleX, y: 1)
         containerView.transform = scaleTransf
         
-        self.asView?.uiChangesFor(Progress: progress, BigStateProgress: 1, SmallStateProgress: 0)
+        self.asView?.uiChangesFor(Progress: progress, BigStateProgress: progress, SmallStateProgress: 1 - progress)
         
         
         if delegate?.showDarkBackgroundLayer() ?? false{

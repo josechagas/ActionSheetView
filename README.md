@@ -60,13 +60,44 @@ override func viewDidLoad() {
 }
 ```
 
+
 ### Step 4: Connect everything on storyboard and interface builder
 Create a custom segue from your 'MyASManagerVC' to 'MyActionSheetVC' of class 'ASViewSegue'
 Choose an identifier and inform it to your 'MyASManagerVC', you can do it on interface builder.
 
 
+### Protocols
+Below you can see all protocols actually available, take a look on methods, each method and parameter has its own doc on project.
+
+```swift
+public protocol ActionSheetViewDelegate{
+    func bottomVC(_ vc:UIViewController)
+    func initialSize()->CGSize
+    func finalSize()->CGSize
+    func showDarkBackgroundLayer()->Bool
+    func darkLayerOpacityForState(_ state:ActionSheetViewState)->Float
+}
+
+public protocol ActionSheetView:class {
+    var controller:ActionSheetViewManager?{get set}
+    func didChangeToState(_ state:ActionSheetViewState)
+    func apperanceChangesFor(NewState state:ActionSheetViewState)
+    func constraintChangesFor(NewState state:ActionSheetViewState)
+    func uiChangesFor(Progress quant:CGFloat, BigStateProgress big:CGFloat, SmallStateProgress small:CGFloat)
+}
+
+public protocol ActionSheetViewManager{
+    func changeToState(_ state:ActionSheetViewState,Animated animated:Bool)
+    func reloadActionSheetView()
+}
+```
+
 ### Looking for more details?
-Take a look on Example project.
+Take a look on Example project and methods documentation.
+
+
+### Doubts?
+Create some issue and we can solve it together.
 
 
 ## Author

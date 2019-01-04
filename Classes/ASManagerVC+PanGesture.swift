@@ -17,8 +17,6 @@ extension ASManagerVC{
         return panGes
     }
     
-    
-    
     @objc private func didPanOnASView(panGes:UIPanGestureRecognizer){
         
         let translation = panGes.translation(in: self.view)

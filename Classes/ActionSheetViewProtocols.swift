@@ -11,14 +11,31 @@ import UIKit
 
 public protocol ActionSheetViewDelegate{
     /**
-     Use this method to pass some data to your bottom vc
+     Use this method to pass some data to your bottom vc, perform some customizatinos, for example add new gestures.
      */
     func bottomVC(_ vc:UIViewController)
-    
+    /**
+     Inform the initial size of your ActionSheetView, this is the size for ActionSheetViewState.small
+     */
     func initialSize()->CGSize
+    /**
+     Inform the final size of your ActionSheetView, this is the size for ActionSheetViewState.big
+     */
     func finalSize()->CGSize
-    
+    /**
+     This method determine if a dark layer should be presented or not depending of ActionSheetViewState of your ActionSheetView instance.
+     - returns: false to not present or true to present
+     
+     The default implementation returns always true
+     */
     func showDarkBackgroundLayer()->Bool
+    /**
+     Implement this method to indicate dark layer opacity depending of ActionSheetView state.
+     - parameter state: Current state of your ActionSheetView.
+     - returns: Float value from 0 to 1 indicating dark layer opacity.
+     
+     The default implementation returns 0.45 when its on ActionSheetViewState.big and 0 on ActionSheetViewState.small.
+     */
     func darkLayerOpacityForState(_ state:ActionSheetViewState)->Float
 }
 
@@ -64,6 +81,7 @@ public protocol ActionSheetView:class {
      Add UI(colors, layer things ...) and constraint change on this method, the new values of changed properties must be relative to progress.
      This method is called on specific case of Pan Gesture being execute by user.
      
+     
      Normally this method does what 'constraintChangesFor' and 'apperanceChangesFor' do on your implementation with a difference that the changes are controlled by the current progress of gesture
      
      */
@@ -71,7 +89,15 @@ public protocol ActionSheetView:class {
 }
 
 public protocol ActionSheetViewManager{
+    /**
+     Current state of your ActionSheetView.
+     */
     var currentState:ActionSheetViewState{get}
+    /**
+     Call this method to change your ActionSheetView instace state to ActionSheetViewState.small or ActionSheetViewState.big
+     - parameter state: the new state of your ActionSheetView instance.
+     - parameter animated: true to animate the state change and false to perform update immediately.
+     */
     func changeToState(_ state:ActionSheetViewState,Animated animated:Bool)
     /**
      This method reloads the ActionSheetView, calling some 'ActionSheetViewDelegate' and ActionSheetView methods to update the view

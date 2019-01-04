@@ -13,7 +13,7 @@ extension MapVC:ActionSheetViewDelegate{
     
     
     func initialSize() -> CGSize {
-        return CGSize(width: self.view.frame.width - 20*(stateOne ? 1 : 0), height: 130)
+        return CGSize(width: self.view.frame.width /*- 20*(stateOne ? 1 : 0)*/, height: 130)
     }
     
     func finalSize() -> CGSize {

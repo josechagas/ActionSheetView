@@ -12,10 +12,6 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		8833AF4C1FA69D59006790EC /* LastSearchsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833AF491FA69D59006790EC /* LastSearchsVC.swift */; };
-		8833AF4D1FA69D59006790EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833AF4A1FA69D59006790EC /* ViewController.swift */; };
-		8833AF4E1FA69D59006790EC /* LastSearchsVC+UITableViewDataSource+Delega.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8833AF4B1FA69D59006790EC /* LastSearchsVC+UITableViewDataSource+Delega.swift */; };
-		8833AF501FA69EF1006790EC /* Dev.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8833AF4F1FA69EF1006790EC /* Dev.storyboard */; };
 		88AE8F151FB71D3100C55CB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88AE8F141FB71D3100C55CB0 /* Main.storyboard */; };
 		88AE8F171FB71F1900C55CB0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AE8F161FB71F1900C55CB0 /* MapKit.framework */; };
 		88AE8F1C1FB7224100C55CB0 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AE8F1B1FB7224100C55CB0 /* MapVC.swift */; };
@@ -57,10 +53,6 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		660BE152AE5E1C4BDC972CD5 /* Pods-ActionSheetView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActionSheetView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActionSheetView_Example/Pods-ActionSheetView_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		8833AF491FA69D59006790EC /* LastSearchsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastSearchsVC.swift; sourceTree = "<group>"; };
-		8833AF4A1FA69D59006790EC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8833AF4B1FA69D59006790EC /* LastSearchsVC+UITableViewDataSource+Delega.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LastSearchsVC+UITableViewDataSource+Delega.swift"; sourceTree = "<group>"; };
-		8833AF4F1FA69EF1006790EC /* Dev.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dev.storyboard; sourceTree = "<group>"; };
 		88AE8F141FB71D3100C55CB0 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		88AE8F161FB71F1900C55CB0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		88AE8F1B1FB7224100C55CB0 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -128,7 +120,6 @@
 				88AE8F1A1FB7221500C55CB0 /* Main */,
 				88AE8F141FB71D3100C55CB0 /* Main.storyboard */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
-				88AE8F191FB7213800C55CB0 /* Dev */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for ActionSheetView";
@@ -180,17 +171,6 @@
 				4C8CC21D541FB1ABE379AD02 /* Pods_ActionSheetView_Tests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		88AE8F191FB7213800C55CB0 /* Dev */ = {
-			isa = PBXGroup;
-			children = (
-				8833AF491FA69D59006790EC /* LastSearchsVC.swift */,
-				8833AF4B1FA69D59006790EC /* LastSearchsVC+UITableViewDataSource+Delega.swift */,
-				8833AF4A1FA69D59006790EC /* ViewController.swift */,
-				8833AF4F1FA69EF1006790EC /* Dev.storyboard */,
-			);
-			name = Dev;
 			sourceTree = "<group>";
 		};
 		88AE8F1A1FB7221500C55CB0 /* Main */ = {
@@ -356,7 +336,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8833AF501FA69EF1006790EC /* Dev.storyboard in Resources */,
 				88AE8F151FB71D3100C55CB0 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				88AE8F341FB742F200C55CB0 /* NoDataView.xib in Resources */,
@@ -444,11 +423,8 @@
 				88AE8F221FB72C9C00C55CB0 /* MapSearchVC.swift in Sources */,
 				88AE8F261FB72D4900C55CB0 /* MapSearchVC+UITableViewDelegate+DataSource.swift in Sources */,
 				88AE8F201FB7274400C55CB0 /* MapVC+MKMapViewDelegate.swift in Sources */,
-				8833AF4D1FA69D59006790EC /* ViewController.swift in Sources */,
 				88AE8F331FB742F200C55CB0 /* NoDataView.swift in Sources */,
-				8833AF4E1FA69D59006790EC /* LastSearchsVC+UITableViewDataSource+Delega.swift in Sources */,
 				88AE8F1E1FB726A500C55CB0 /* MapVC+ActionSheetViewDelegate.swift in Sources */,
-				8833AF4C1FA69D59006790EC /* LastSearchsVC.swift in Sources */,
 				88AE8F2F1FB742DB00C55CB0 /* TableViewBackLV.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

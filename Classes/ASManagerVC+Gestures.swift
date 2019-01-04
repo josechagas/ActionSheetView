@@ -17,7 +17,7 @@ extension ASManagerVC{
         //pan.require(toFail: upSwipe)
         //pan.require(toFail: downSwipe)
     }
-    
+    /*
     @discardableResult
     private func addTapGes()->UITapGestureRecognizer{
         let tapGes = UITapGestureRecognizer(target: self, action: #selector(ASManagerVC.didTapOnASView(tapGes:)))
@@ -76,6 +76,6 @@ extension ASManagerVC{
         else{
             changeToSmallDimensions(Animate: true)
         }
-    }
+    }*/
 }
 
